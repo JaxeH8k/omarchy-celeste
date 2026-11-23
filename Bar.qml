@@ -1364,6 +1364,19 @@ Item {
                 onPressed: SettingsPanel.close()
             }
 
+            // Same click-outside closer for the left edge's rail + slideouts.
+            // Dismisses the whole flyout (rail included) on a fast collapse
+            // rather than just the open slideout. z 0 like the settings
+            // closer, so the bar and the flyout itself (z 11) stay live.
+            MouseArea {
+                anchors.fill: parent
+                z: 0
+                enabled: panel.leftPanelOpen
+                visible: panel.leftPanelOpen
+                acceptedButtons: Qt.AllButtons
+                onPressed: LeftPanel.dismiss()
+            }
+
             MenuModule.MenuPanel {
                 id: settingsPanel
 

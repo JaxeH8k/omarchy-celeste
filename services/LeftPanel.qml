@@ -100,6 +100,26 @@ QtObject {
         root.screenName = "";
     }
 
+    // Collapses the rail and every slideout at once, on a short animation --
+    // what a click outside the open flyout does (Bar.qml's closer). The flag
+    // is raised BEFORE hideAll() so the width Behaviors in
+    // modules/leftpanel/LeftPanel.qml pick the fast timing as they start, and
+    // drops once the collapse is done so the next reveal animates normally.
+    property bool dismissing: false
+    readonly property int dismissDuration: 150
+
+    function dismiss() {
+        hideTimer.stop();
+        root.dismissing = true;
+        root.hideAll();
+        dismissTimer.restart();
+    }
+
+    property Timer dismissTimer: Timer {
+        interval: root.dismissDuration + 50
+        onTriggered: root.dismissing = false
+    }
+
     property Timer hideTimer: Timer {
         interval: 1600
         onTriggered: {

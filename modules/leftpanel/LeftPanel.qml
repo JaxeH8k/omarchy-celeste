@@ -124,7 +124,8 @@ Item {
 
         Behavior on width {
             Anim {
-                type: Anim.DefaultSpatial
+                type: LeftPanel.dismissing ? Anim.StandardSmall : Anim.DefaultSpatial
+                duration: LeftPanel.dismissing ? LeftPanel.dismissDuration : Tokens.anim.durations.expressiveDefaultSpatial
             }
         }
 
@@ -238,7 +239,8 @@ Item {
 
         Behavior on width {
             Anim {
-                type: Anim.DefaultSpatial
+                type: LeftPanel.dismissing ? Anim.StandardSmall : Anim.DefaultSpatial
+                duration: LeftPanel.dismissing ? LeftPanel.dismissDuration : Tokens.anim.durations.expressiveDefaultSpatial
             }
         }
 
@@ -294,7 +296,8 @@ Item {
 
         Behavior on width {
             Anim {
-                type: Anim.DefaultSpatial
+                type: LeftPanel.dismissing ? Anim.StandardSmall : Anim.DefaultSpatial
+                duration: LeftPanel.dismissing ? LeftPanel.dismissDuration : Tokens.anim.durations.expressiveDefaultSpatial
             }
         }
 
