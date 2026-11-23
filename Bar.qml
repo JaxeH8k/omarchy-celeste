@@ -1071,6 +1071,25 @@ Item {
                 }
             }
 
+            // Click-to-open popouts (status icons, running apps): hovering an
+            // icon never opens its popout. Hover still matters once one is
+            // open -- resting on that same icon keeps it open, and moving off
+            // both it and the popout closes it, as before.
+            function hoverClickPopout(name, centre) {
+                if (!name || panel.popoutName === name)
+                    panel.setPopout(name, centre);
+            }
+
+            function toggleClickPopout(name, centre) {
+                popoutCloser.stop();
+                if (panel.popoutName === name) {
+                    panel.popoutName = "";
+                } else {
+                    panel.popoutName = name;
+                    panel.popoutCentre = centre;
+                }
+            }
+
             // Declared here rather than on root: the Components below live in
             // this scope, so a resolver on root could not see them.
             //
@@ -1574,15 +1593,8 @@ Item {
                     // (AgentsPopout.qml, backed by services/AgentUsage.qml)
                     // like every other status icon, so no special-casing is
                     // needed here any more.
-                    onHoverChanged: (name, centre) => panel.setPopout(name, centre)
-                    onIconClicked: (name, centre) => {
-                        if (panel.popoutName === name) {
-                            panel.popoutName = "";
-                        } else {
-                            panel.popoutName = name;
-                            panel.popoutCentre = centre;
-                        }
-                    }
+                    onHoverChanged: (name, centre) => panel.hoverClickPopout(name, centre)
+                    onIconClicked: (name, centre) => panel.toggleClickPopout(name, centre)
                 }
             }
 
@@ -1593,16 +1605,8 @@ Item {
                     // Same border-attached popout as statusIconsComponent, just
                     // keyed by "app:<class>" so the switch in contentComponent
                     // can tell the two families of popout apart.
-                    onHoverChanged: (appClass, centre) => panel.setPopout(appClass ? "app:" + appClass : "", centre)
-                    onIconClicked: (appClass, centre) => {
-                        const name = "app:" + appClass;
-                        if (panel.popoutName === name) {
-                            panel.popoutName = "";
-                        } else {
-                            panel.popoutName = name;
-                            panel.popoutCentre = centre;
-                        }
-                    }
+                    onHoverChanged: (appClass, centre) => panel.hoverClickPopout(appClass ? "app:" + appClass : "", centre)
+                    onIconClicked: (appClass, centre) => panel.toggleClickPopout("app:" + appClass, centre)
                 }
             }
 

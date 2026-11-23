@@ -11,9 +11,9 @@ import "../../../components"
 import "../../../services"
 
 // One icon per running application (grouped by window class), left of the
-// status-icon pill. Hover previews that app's open-window list; clicking
-// pins the same popout open -- identical wiring to StatusIcons, so both
-// land in the same border-attached, downward-growing panel.
+// status-icon pill. Clicking opens that app's open-window list (hover alone
+// does not -- see Bar.qml's hoverClickPopout) -- identical wiring to
+// StatusIcons, so both land in the same border-attached, downward-growing panel.
 StyledRect {
     id: root
 
