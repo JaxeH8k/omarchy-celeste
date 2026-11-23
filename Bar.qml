@@ -204,6 +204,16 @@ Item {
     // equal share of whatever the fixed sections leave over -- that is how
     // "Middle: 250px or Remaining" is expressed. In percent mode every width
     // is a share of `avail`.
+    // Hosted Omarchy widgets render at Omarchy's own size and are scaled up
+    // 1.4x to suit the bar. The ones listed here also follow the
+    // configurable bar height (Tokens.sizes.bar.scale) like Celeste's own
+    // widgets do; any other hosted widget keeps the fixed 1.4x.
+    readonly property var heightScaledHostedIds: ["logo", "power"]
+
+    function hostedContentScale(id) {
+        return 1.4 * (root.heightScaledHostedIds.indexOf(String(id)) !== -1 ? Tokens.sizes.bar.scale : 1);
+    }
+
     function sectionWidths(avail) {
         const keys = ["left", "middle", "right"];
         const out = {};
@@ -836,7 +846,7 @@ Item {
                         barSize: Tokens.sizes.bar.height
                         barTotalSize: root.barSize
                         hostScreen: anchorSurface.modelData
-                        contentScale: 1.4
+                        contentScale: root.hostedContentScale(entryId)
                         uniformCell: Tokens.sizes.bar.height * 0.65
 
                         // Registered like any other hosted widget, so
@@ -1711,7 +1721,7 @@ Item {
                     barTotalSize: root.barSize
                     // Bar entries only -- the anchor-only hosts below stay at
                     // their natural size, since nothing of them is drawn.
-                    contentScale: 1.4
+                    contentScale: root.hostedContentScale(String(modelData.id || ""))
                     uniformCell: Tokens.sizes.bar.height * 0.65
                     hostScreen: panel.modelData
 
