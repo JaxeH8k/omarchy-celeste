@@ -208,7 +208,7 @@ Item {
     // 1.4x to suit the bar. The ones listed here also follow the
     // configurable bar height (Tokens.sizes.bar.scale) like Celeste's own
     // widgets do; any other hosted widget keeps the fixed 1.4x.
-    readonly property var heightScaledHostedIds: ["logo", "power"]
+    readonly property var heightScaledHostedIds: ["logo", "power", "jaxe.sirius"]
 
     function hostedContentScale(id) {
         return 1.4 * (root.heightScaledHostedIds.indexOf(String(id)) !== -1 ? Tokens.sizes.bar.scale : 1);
