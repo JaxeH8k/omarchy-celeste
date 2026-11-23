@@ -110,6 +110,7 @@ StyledRect {
         anchors.centerIn: parent
         visible: root.collapsible && !root.expanded
         opacity: root.collapsible && !root.expanded ? 1 : 0
+        fontStyle: Tokens.font.bar.icon
         text: "directions_run"
         color: Colours.palette.m3onSurface
 
@@ -163,6 +164,7 @@ StyledRect {
                 MaterialIcon {
                     anchors.fill: parent
                     visible: icon.iconSource === ""
+                    fontStyle: Tokens.font.bar.icon
                     text: Apps.fallbackGlyph
                     color: Colours.palette.m3onSurfaceVariant
                 }

@@ -136,6 +136,7 @@ StyledRect {
         anchors.centerIn: parent
         visible: root.collapsible && !root.expanded
         opacity: root.collapsible && !root.expanded ? 1 : 0
+        fontStyle: Tokens.font.bar.icon
         text: "tune"
         color: Colours.palette.m3onSurface
 
@@ -173,6 +174,7 @@ StyledRect {
                 readonly property string entryId: icon.modelData.id
 
                 Layout.alignment: Qt.AlignVCenter
+                fontStyle: Tokens.font.bar.icon
 
                 color: {
                     if (entryId === "battery" && Battery.low)

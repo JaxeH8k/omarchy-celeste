@@ -43,6 +43,7 @@ StyledRect {
 
         StyledText {
             Layout.alignment: Qt.AlignVCenter
+            font: Tokens.font.bar.text
             text: `${Math.round(root.value * 100)}%`
             color: root.colour
         }

@@ -177,7 +177,7 @@ StyledClippingRect {
                     text: String(ws.index + 1)
                     // Smaller than the bar default: a circle gives the label
                     // less horizontal room than the old pill did.
-                    font.pointSize: Tokens.fontSize.small
+                    font.pointSize: Tokens.fontSize.small * Tokens.sizes.bar.scale
                     color: ws.isActive ? Colours.palette.m3onPrimary : Colours.palette.m3onSurfaceVariant
                     opacity: ws.isActive ? 1 : 0
                     visible: opacity > 0

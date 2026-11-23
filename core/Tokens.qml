@@ -117,6 +117,14 @@ QtObject {
         readonly property string mono: Config.appearance.font.mono
         readonly property string material: Config.appearance.font.material
 
+        // Bar widget text and icons: body.small / icon.small, scaled with the
+        // configurable bar height (sizes.bar.scale) so text grows and shrinks
+        // with the bar. Only Celeste's own bar widgets use these.
+        readonly property QtObject bar: QtObject {
+            readonly property font text: Qt.font({ family: root.font.sans, pointSize: root.fontSize.small * root.sizes.bar.scale })
+            readonly property font icon: Qt.font({ family: root.font.material, pointSize: root.fontSize.larger * root.sizes.bar.scale })
+        }
+
         readonly property QtObject body: QtObject {
             readonly property font small: Qt.font({ family: root.font.sans, pointSize: root.fontSize.small })
             readonly property font smaller: Qt.font({ family: root.font.sans, pointSize: root.fontSize.smaller })
@@ -145,6 +153,9 @@ QtObject {
             readonly property int minHeight: 24
             readonly property int maxHeight: 72
             readonly property int height: Math.max(minHeight, Math.min(maxHeight, Math.round(Number(Config.bar.height) || 40)))
+            // Text/icon scale for the bar's own widgets, relative to the
+            // original 40px bar. Read through font.bar below.
+            readonly property real scale: height / 40
             readonly property int windowPreviewSize: 400
             readonly property int trayMenuWidth: 300
             readonly property int batteryWidth: 250

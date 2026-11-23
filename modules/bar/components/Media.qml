@@ -84,6 +84,7 @@ StyledRect {
 
         MaterialIcon {
             Layout.alignment: Qt.AlignVCenter
+            fontStyle: Tokens.font.bar.icon
             text: root.playing ? "pause" : "play_arrow"
             color: Colours.palette.m3primary
         }
@@ -91,6 +92,7 @@ StyledRect {
         StyledText {
             Layout.alignment: Qt.AlignVCenter
             Layout.maximumWidth: root.maxWidth - Tokens.sizes.bar.height
+            font: Tokens.font.bar.text
             text: root.label
             color: Colours.palette.m3onSurface
             elide: Text.ElideRight

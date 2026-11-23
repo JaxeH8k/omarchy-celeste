@@ -27,7 +27,7 @@ StyledRect {
 
     readonly property color colour: Colours.palette.m3tertiary
     readonly property int padding: Config.bar.clock.background ? Tokens.padding.medium : Tokens.padding.extraSmall
-    readonly property int pointSize: Math.round(Tokens.fontSize.small * 1.1)
+    readonly property int pointSize: Math.round(Tokens.fontSize.small * 1.1 * Tokens.sizes.bar.scale)
 
     implicitWidth: layout.implicitWidth + root.padding * 2
     implicitHeight: Tokens.sizes.bar.height

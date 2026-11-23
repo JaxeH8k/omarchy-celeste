@@ -105,7 +105,7 @@ Item {
                 animate: true
                 visible: root.appClass.length > 0
                 text: root.appClass
-                font.pointSize: Math.round(Tokens.fontSize.small * 0.78)
+                font.pointSize: Math.round(Tokens.fontSize.small * 0.78 * Tokens.sizes.bar.scale)
                 color: Colours.palette.m3outline
                 elide: Text.ElideRight
             }
@@ -116,7 +116,7 @@ Item {
 
                 animate: true
                 text: root.windowTitle
-                font.pointSize: Math.round(Tokens.fontSize.small * 0.95)
+                font.pointSize: Math.round(Tokens.fontSize.small * 0.95 * Tokens.sizes.bar.scale)
                 color: root.colour
                 elide: Text.ElideRight
             }
