@@ -30,7 +30,7 @@ StyledRect {
     readonly property int pointSize: Math.round(Tokens.fontSize.small * 1.1)
 
     implicitWidth: layout.implicitWidth + root.padding * 2
-    implicitHeight: Tokens.sizes.bar.innerWidth
+    implicitHeight: Tokens.sizes.bar.height
 
     color: Config.bar.clock.background
         ? Colours.tPalette.m3surfaceContainer

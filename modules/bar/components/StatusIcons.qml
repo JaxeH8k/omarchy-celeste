@@ -58,7 +58,7 @@ StyledRect {
     implicitWidth: root.collapsible
         ? (root.expanded ? row.implicitWidth + Tokens.padding.medium * 2 : root.implicitHeight)
         : row.implicitWidth + Tokens.padding.medium * 2
-    implicitHeight: Tokens.sizes.bar.innerWidth
+    implicitHeight: Tokens.sizes.bar.height
 
     Behavior on implicitWidth {
         enabled: root.collapsible

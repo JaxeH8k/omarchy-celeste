@@ -56,7 +56,7 @@ StyledRect {
     radius: Tokens.rounding.full
 
     implicitWidth: hasMedia ? Math.min(layout.implicitWidth + padding * 2, maxWidth) : 0
-    implicitHeight: Tokens.sizes.bar.innerWidth
+    implicitHeight: Tokens.sizes.bar.height
     visible: hasMedia
     clip: true
 
@@ -90,7 +90,7 @@ StyledRect {
 
         StyledText {
             Layout.alignment: Qt.AlignVCenter
-            Layout.maximumWidth: root.maxWidth - Tokens.sizes.bar.innerWidth
+            Layout.maximumWidth: root.maxWidth - Tokens.sizes.bar.height
             text: root.label
             color: Colours.palette.m3onSurface
             elide: Text.ElideRight

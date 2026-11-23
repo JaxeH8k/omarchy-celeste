@@ -137,7 +137,14 @@ QtObject {
 
     readonly property QtObject sizes: QtObject {
         readonly property QtObject bar: QtObject {
+            // Fixed base size that non-bar UI (settings, side panels,
+            // popouts) still scales from, so resizing the bar leaves them alone.
             readonly property int innerWidth: 40
+            // The bar's content height, user-configurable (Config bar.height),
+            // clamped to a range where the widgets still lay out sensibly.
+            readonly property int minHeight: 24
+            readonly property int maxHeight: 72
+            readonly property int height: Math.max(minHeight, Math.min(maxHeight, Math.round(Number(Config.bar.height) || 40)))
             readonly property int windowPreviewSize: 400
             readonly property int trayMenuWidth: 300
             readonly property int batteryWidth: 250

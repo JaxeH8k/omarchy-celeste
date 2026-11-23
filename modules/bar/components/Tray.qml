@@ -22,7 +22,7 @@ StyledRect {
     id: root
 
     readonly property var items: SystemTray.items ? SystemTray.items.values : []
-    readonly property int iconSize: Math.round(Tokens.sizes.bar.innerWidth * 0.5)
+    readonly property int iconSize: Math.round(Tokens.sizes.bar.height * 0.5)
 
     // Emitted as the pointer moves across the row. `itemId` is the tray
     // item's id under the cursor (empty when none, or when it has no menu to
@@ -37,7 +37,7 @@ StyledRect {
     radius: Tokens.rounding.full
 
     implicitWidth: root.items.length > 0 ? row.implicitWidth + Tokens.padding.small * 2 : 0
-    implicitHeight: Tokens.sizes.bar.innerWidth
+    implicitHeight: Tokens.sizes.bar.height
     visible: root.items.length > 0
 
     function iconAt(point) {

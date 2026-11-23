@@ -76,7 +76,7 @@ Item {
 
     clip: true
     implicitWidth: layout.implicitWidth
-    implicitHeight: Tokens.sizes.bar.innerWidth
+    implicitHeight: Tokens.sizes.bar.height
 
     RowLayout {
         id: layout

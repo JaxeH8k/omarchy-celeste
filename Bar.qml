@@ -52,7 +52,7 @@ Item {
     readonly property int borderRounding: Config.border.rounding
 
     readonly property int padding: Math.max(Tokens.padding.small, borderThickness)
-    readonly property int barSize: Tokens.sizes.bar.innerWidth + padding * 2
+    readonly property int barSize: Tokens.sizes.bar.height + padding * 2
     property bool barHidden: false
     readonly property string position: "top"
     readonly property string fontFamily: Tokens.font.sans
@@ -833,11 +833,11 @@ Item {
                         shell: root.shell
                         // The entry itself, exactly as the bar used to pass it.
                         settings: modelData
-                        barSize: Tokens.sizes.bar.innerWidth
+                        barSize: Tokens.sizes.bar.height
                         barTotalSize: root.barSize
                         hostScreen: anchorSurface.modelData
                         contentScale: 1.4
-                        uniformCell: Tokens.sizes.bar.innerWidth * 0.65
+                        uniformCell: Tokens.sizes.bar.height * 0.65
 
                         // Registered like any other hosted widget, so
                         // shell.summon/hide/toggle can still route to it --
@@ -873,7 +873,7 @@ Item {
                     registry: root.barWidgetRegistry
                     shell: root.shell
                     settings: ({ hidden: true })
-                    barSize: Tokens.sizes.bar.innerWidth
+                    barSize: Tokens.sizes.bar.height
                     barTotalSize: root.barSize
                     hostScreen: anchorSurface.modelData
 
@@ -1641,7 +1641,7 @@ Item {
                     // reports -- including reporting 0, for a plugin with no bar
                     // component -- the real value takes over.
                     implicitWidth: placeholder.measured === undefined
-                        ? Tokens.sizes.bar.innerWidth * 0.65
+                        ? Tokens.sizes.bar.height * 0.65
                         : placeholder.measured
                     // Reserves WIDTH only. An earlier version claimed
                     // root.barSize (the full 60px bar) here, but the section it
@@ -1694,12 +1694,12 @@ Item {
                     registry: root.barWidgetRegistry
                     shell: root.shell
                     settings: modelData
-                    barSize: Tokens.sizes.bar.innerWidth
+                    barSize: Tokens.sizes.bar.height
                     barTotalSize: root.barSize
                     // Bar entries only -- the anchor-only hosts below stay at
                     // their natural size, since nothing of them is drawn.
                     contentScale: 1.4
-                    uniformCell: Tokens.sizes.bar.innerWidth * 0.65
+                    uniformCell: Tokens.sizes.bar.height * 0.65
                     hostScreen: panel.modelData
 
                     onRegistered: (id, self) => root.registerHosted(id, self)

@@ -18,7 +18,7 @@ StyledRect {
     id: root
 
     readonly property var groups: Apps.groups
-    readonly property int iconSize: Math.round(Tokens.sizes.bar.innerWidth * 0.55)
+    readonly property int iconSize: Math.round(Tokens.sizes.bar.height * 0.55)
 
     // Emitted as the pointer moves across the row. `appClass` is the window
     // class under the cursor (empty when none), `centre` its x midpoint in
@@ -43,7 +43,7 @@ StyledRect {
         : root.collapsible
             ? (root.expanded ? row.implicitWidth + Tokens.padding.medium * 2 : root.implicitHeight)
             : row.implicitWidth + Tokens.padding.medium * 2
-    implicitHeight: Tokens.sizes.bar.innerWidth
+    implicitHeight: Tokens.sizes.bar.height
     visible: root.groups.length > 0
 
     Behavior on implicitWidth {

@@ -162,6 +162,40 @@ Item {
             spacing: Tokens.spacing.medium
 
             StyledText {
+                Layout.preferredWidth: 160
+                text: "Bar height"
+                font: Tokens.font.body.normal
+                color: Colours.palette.m3onSurface
+            }
+
+            Stepper {
+                value: Tokens.sizes.bar.height + "px"
+                onDecrement: Config.writeBarHeight(Math.max(Tokens.sizes.bar.minHeight, Tokens.sizes.bar.height - 2))
+                onIncrement: Config.writeBarHeight(Math.min(Tokens.sizes.bar.maxHeight, Tokens.sizes.bar.height + 2))
+            }
+
+            Choice {
+                visible: Tokens.sizes.bar.height !== 40
+                label: "Reset"
+                onClicked: Config.writeBarHeight(40)
+            }
+
+            Item {
+                Layout.fillWidth: true
+            }
+        }
+
+        Rectangle {
+            Layout.fillWidth: true
+            implicitHeight: 1
+            color: Colours.palette.m3outlineVariant
+        }
+
+        RowLayout {
+            Layout.fillWidth: true
+            spacing: Tokens.spacing.medium
+
+            StyledText {
                 text: "Section widths"
                 font: Tokens.font.body.normal
                 color: Colours.palette.m3onSurface

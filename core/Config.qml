@@ -128,6 +128,11 @@ QtObject {
             // "auto" is the default because the fixed modes clip: adding
             // widgets to a section eventually pushes its contents past a width
             // that does not grow, and they simply vanish.
+            // Height of the bar's content area in pixels, before the
+            // padding Bar.qml adds above and below it. Every bar widget sizes
+            // itself from this (via Tokens.sizes.bar.height); 40 is the
+            // original fixed value. Set from the settings panel's Top Bar page.
+            height: 40,
             sections: {
                 mode: "auto",
                 percent: { left: 33, middle: 34, right: 33 },
@@ -319,6 +324,21 @@ QtObject {
         for (const k in (root.user.bar || ({})))
             bar[k] = root.user.bar[k];
         bar.collapse = values;
+        next.bar = bar;
+        root.user = next;
+        writer.setText(JSON.stringify(next, null, 2));
+    }
+
+    // Persists bar.height (the settings panel's "Bar height" stepper). Same
+    // shape as writeBarSections: everything else under `bar` is copied through.
+    function writeBarHeight(px) {
+        const next = {};
+        for (const k in root.user)
+            next[k] = root.user[k];
+        const bar = {};
+        for (const k in (root.user.bar || ({})))
+            bar[k] = root.user.bar[k];
+        bar.height = px;
         next.bar = bar;
         root.user = next;
         writer.setText(JSON.stringify(next, null, 2));

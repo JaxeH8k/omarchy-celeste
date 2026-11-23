@@ -75,11 +75,11 @@ StyledClippingRect {
     // strip's own row height so it stays proportional if the bar is rescaled,
     // with room inside for the workspace number and clearance for the halo.
     readonly property int dotSize: Tokens.spacing.medium
-    readonly property int activeSize: Math.round(Tokens.sizes.bar.innerWidth * 0.62)
-    readonly property int haloSize: Math.round(Tokens.sizes.bar.innerWidth * 0.82)
+    readonly property int activeSize: Math.round(Tokens.sizes.bar.height * 0.62)
+    readonly property int haloSize: Math.round(Tokens.sizes.bar.height * 0.82)
 
     implicitWidth: layout.implicitWidth + Tokens.padding.small
-    implicitHeight: Tokens.sizes.bar.innerWidth
+    implicitHeight: Tokens.sizes.bar.height
 
     color: Colours.tPalette.m3surfaceContainer
     radius: Tokens.rounding.full
@@ -103,8 +103,8 @@ StyledClippingRect {
                 readonly property bool isOccupied: root.occupied[ws.wsId] === true
                 property bool hovered: false
 
-                implicitWidth: Tokens.sizes.bar.innerWidth
-                implicitHeight: Tokens.sizes.bar.innerWidth
+                implicitWidth: Tokens.sizes.bar.height
+                implicitHeight: Tokens.sizes.bar.height
 
                 // A soft halo behind the active pill -- a low-opacity, larger
                 // copy of the primary colour -- is the one purely decorative

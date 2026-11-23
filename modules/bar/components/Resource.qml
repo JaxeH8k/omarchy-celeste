@@ -14,10 +14,10 @@ StyledRect {
     property color colour: Colours.palette.m3primary
 
     readonly property int padding: Tokens.padding.extraSmall
-    readonly property int ringSize: Math.round(Tokens.sizes.bar.innerWidth * 0.6)
+    readonly property int ringSize: Math.round(Tokens.sizes.bar.height * 0.6)
 
     implicitWidth: layout.implicitWidth + padding * 2
-    implicitHeight: Tokens.sizes.bar.innerWidth
+    implicitHeight: Tokens.sizes.bar.height
 
     color: "transparent"
     radius: Tokens.rounding.full
