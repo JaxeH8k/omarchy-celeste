@@ -214,7 +214,7 @@ Item {
                     elide: Text.ElideRight
                     text: row.modelData.label
                     color: row.current ? Colours.palette.m3onSecondaryContainer : Colours.palette.m3onSurface
-                    font.pointSize: Tokens.fontSize.normal
+                    font.pointSize: Tokens.fontSize.normal * 0.6
                 }
 
                 StyledText {
@@ -223,7 +223,7 @@ Item {
                     elide: Text.ElideRight
                     text: row.subtitle
                     color: row.current ? Colours.palette.m3onSecondaryContainer : Colours.palette.m3outline
-                    font.pointSize: Tokens.fontSize.small
+                    font.pointSize: Tokens.fontSize.small * 0.6
                     opacity: row.current ? 0.75 : 1
                 }
             }
